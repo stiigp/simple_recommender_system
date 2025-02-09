@@ -4,13 +4,14 @@
 import pandas as pd
 import requests
 import json
+import config
 
 items = pd.read_csv('ml-100k/u.item', encoding="latin-1", delimiter="|")
 
 
 headers = {
     "accept": "application/json",
-    "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYTRlNjdkZGVkY2Q3OGIzNWRiY2ZkNjE2YzdhN2MxOSIsIm5iZiI6MTczODgwMDgxOS41OTAwMDAyLCJzdWIiOiI2N2EzZmViMzQzNzgxYjRiZmEyZmMwZTIiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.58AiGnWUBeWypDGaH_9QX3HFwd-QPEpOjJYzaIvq5ug"
+    "Authorization": f"Bearer {config.TMDB_ACCESS_TOKEN}"
 }
 
 BASE_IMG_URL = "https://image.tmdb.org/t/p/w500"
