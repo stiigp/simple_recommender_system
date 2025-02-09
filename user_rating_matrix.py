@@ -1,15 +1,9 @@
 import pandas as pd
-from sklearn.metrics.pairwise import cosine_similarity
+from items_ratings_treated import items, ratings
 
-items = pd.read_csv('ml-latest-small/movies.csv', delimiter=',', names=['movieId', 'title', 'genres'])
-ratings = pd.read_csv('ml-latest-small/ratings.csv', delimiter=',', names=["userId","movieId","rating","timestamp"])
-
-# convertendo algumas séries em numérico por estarem em str
-ratings['rating'] = pd.to_numeric(ratings['rating'], errors="coerce")
-ratings['userId'] = pd.to_numeric(ratings['userId'], errors="coerce")
-ratings['movieId'] = pd.to_numeric(ratings['movieId'], errors="coerce")
-
-items['movieId'] = pd.to_numeric(items['movieId'], errors="coerce")
+# this does generate the rating matrix, where users are the rows, movies are the columns and the value of
+# the cell mat[i][j] is the rating user i gave to film j.
+# will use on the rest of the project
 
 def generate_rating_matrix(ratings: pd.DataFrame) -> pd.DataFrame:
 
@@ -18,5 +12,7 @@ def generate_rating_matrix(ratings: pd.DataFrame) -> pd.DataFrame:
     return user_movie_matrix
 
 
-user_rating_matrix = generate_rating_matrix(ratings=ratings)
-# print(user_rating_matrix)
+rating_matrix = generate_rating_matrix(ratings=ratings)
+
+if __name__ == "__main__":
+    print(rating_matrix)
