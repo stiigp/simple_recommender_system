@@ -1,0 +1,1 @@
+ratings_filtered = filtering_ratings_based_on_items(items=items_filtered, ratings=ratings)
