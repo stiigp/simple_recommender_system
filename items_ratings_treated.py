@@ -1,4 +1,7 @@
 import pandas as pd
+import os
+
+base_path = os.path.dirname(__file__)
 
 # --- MAJORLY IMPORTANT FILE FOR THE REST OF THE PROJECT ---
 # this file gets the csv files from the dataset, converts some series from string to numeric
@@ -35,9 +38,11 @@ def filtering_ratings_based_on_items(items: pd.DataFrame, ratings: pd.DataFrame)
     # print(ratings[ratings['movieId'].isin(items["movieId"])])
     return ratings[ratings['movieId'].isin(items["movieId"])]
 
+items_path = os.path.join(base_path, "ml-latest-small/movies.csv")
+ratings_path = os.path.join(base_path, "ml-latest-small/ratings.csv")
 
-items = pd.read_csv('./ml-latest-small/movies.csv', delimiter=',', names=['movieId', 'title', 'genres'])
-ratings = pd.read_csv('./ml-latest-small/ratings.csv', delimiter=',', names=["userId", "movieId", "rating", "timestamp"])
+items = pd.read_csv(items_path, delimiter=',', names=['movieId', 'title', 'genres'])
+ratings = pd.read_csv(ratings_path, delimiter=',', names=["userId", "movieId", "rating", "timestamp"])
 
 # convertendo algumas séries em numérico por estarem em str
 ratings['rating'] = pd.to_numeric(ratings['rating'], errors="coerce")
