@@ -38,8 +38,8 @@ def filtering_ratings_based_on_items(items: pd.DataFrame, ratings: pd.DataFrame)
     # print(ratings[ratings['movieId'].isin(items["movieId"])])
     return ratings[ratings['movieId'].isin(items["movieId"])]
 
-items_path = os.path.join(base_path, "ml-latest-small/movies.csv")
-ratings_path = os.path.join(base_path, "ml-latest-small/ratings.csv")
+items_path = os.path.join(base_path, "../ml-latest-small/movies.csv")
+ratings_path = os.path.join(base_path, "../ml-latest-small/ratings.csv")
 
 items = pd.read_csv(items_path, delimiter=',', names=['movieId', 'title', 'genres'])
 ratings = pd.read_csv(ratings_path, delimiter=',', names=["userId", "movieId", "rating", "timestamp"])

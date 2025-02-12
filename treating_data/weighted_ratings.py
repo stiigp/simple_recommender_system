@@ -10,8 +10,8 @@ import pandas as pd
 #               "Thriller", "War", "Western"])
 # ratings = pd.read_csv('ml-100k/u.data', encoding="utf-8", delimiter="\t", names=["userId", "movieId", "rating", "timestamp"])
 
-items = pd.read_csv('ml-latest-small/movies.csv', delimiter=',', names=['movieId', 'title', 'genres'])
-ratings = pd.read_csv('ml-latest-small/ratings.csv', delimiter=',', names=["userId","movieId","rating","timestamp"])
+items = pd.read_csv('../ml-latest-small/movies.csv', delimiter=',', names=['movieId', 'title', 'genres'])
+ratings = pd.read_csv('../ml-latest-small/ratings.csv', delimiter=',', names=["userId", "movieId", "rating", "timestamp"])
 
 # convertendo algumas séries em numérico por estarem em str
 ratings['rating'] = pd.to_numeric(ratings['rating'], errors="coerce")

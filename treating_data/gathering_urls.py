@@ -6,7 +6,7 @@ import requests
 import json
 import config
 
-items = pd.read_csv('ml-100k/u.item', encoding="latin-1", delimiter="|")
+items = pd.read_csv('../ml-100k/u.item', encoding="latin-1", delimiter="|")
 
 
 headers = {
@@ -48,6 +48,6 @@ for index, row in items.iterrows():
     # print(response.text)
     # print(formatted_name)
 
-with open("poster_urls.json", "w", encoding="utf-8") as f:
+with open("../poster_urls.json", "w", encoding="utf-8") as f:
     json.dump(poster_urls_list, f, indent=4)
     

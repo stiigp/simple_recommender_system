@@ -1,5 +1,5 @@
 import pandas as pd
-from items_ratings_treated import items, ratings
+from treating_data.items_ratings_treated import items, ratings
 
 # this does generate the rating matrix, where users are the rows, movies are the columns and the value of
 # the cell mat[i][j] is the rating user i gave to film j.

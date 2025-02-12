@@ -1,6 +1,6 @@
 import pandas as pd
-from user_rating_matrix import rating_matrix
-from items_ratings_treated import items, ratings
+from treating_data.user_rating_matrix import rating_matrix
+from treating_data.items_ratings_treated import items, ratings
 
 def filtering_ratings_based_on_items(items: pd.DataFrame, ratings: pd.DataFrame) -> pd.DataFrame:
     # print(ratings[ratings['movieId'].isin(items["movieId"])])

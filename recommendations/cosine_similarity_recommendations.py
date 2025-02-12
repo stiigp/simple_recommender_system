@@ -1,7 +1,8 @@
 import pandas as pd
-from user_rating_matrix import rating_matrix
+from treating_data.user_rating_matrix import rating_matrix
 from sklearn.metrics.pairwise import cosine_similarity
-from items_ratings_treated import items, ratings
+from treating_data.items_ratings_treated import items
+
 
 def _build_cosine_similarity_matrix(rating_matrix: pd.DataFrame) -> pd.DataFrame:
     # aqui usamos a matriz transposta pois a funcao cosine_similarity calcula a similaridade entre as linhas

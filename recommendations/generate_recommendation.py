@@ -1,7 +1,7 @@
 import cosine_similarity_recommendations, pearson_correlation_recommendations
-from items_ratings_treated import items, ratings
-from user_rating_matrix import rating_matrix
-from thefuzz import fuzz, process
+from treating_data.items_ratings_treated import items
+from treating_data.user_rating_matrix import rating_matrix
+from thefuzz import process
 
 types_of_algorithms = ["Pearson Correlation Coefficient", "Cosine Similarity"]
 

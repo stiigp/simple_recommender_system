@@ -1,6 +1,6 @@
 from surprise import SVD, Dataset, Reader, accuracy, dump
 from surprise.model_selection import train_test_split
-from items_ratings_treated import ratings
+from treating_data.items_ratings_treated import ratings
 
 # training and implementations of this is pretty easy, but applying it on the final application is still something I need
 # to evaluate.
