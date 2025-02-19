@@ -1,4 +1,4 @@
-# currently deprecated
+# currently under update
 # this whole code needs to be updated to the 2018 100k database
 
 import pandas as pd
@@ -6,7 +6,7 @@ import requests
 import json
 import config
 
-items = pd.read_csv('../ml-100k/u.item', encoding="latin-1", delimiter="|")
+items = pd.read_csv('../ml-latest-small/movies.csv', encoding="latin-1", delimiter=",")
 
 
 headers = {
@@ -18,10 +18,10 @@ BASE_IMG_URL = "https://image.tmdb.org/t/p/w500"
 poster_urls_list = list()
 
 for index, row in items.iterrows():
-    if '(' in row[1]:
-        formatted_name = row[1][:row[1].index('(')].replace(" ", "%20").replace(",", "%2C").replace("'", "%27").replace("`", "%60")
+    if '(' in row.iloc[1]:
+        formatted_name = row.iloc[1][:row[1].index('(')].replace(" ", "%20").replace(",", "%2C").replace("'", "%27").replace("`", "%60")
     else:
-        formatted_name = row[1].replace(" ", "%20").replace(",", "%2C").replace("'", "%27").replace("`", "%60")
+        formatted_name = row.iloc[1].replace(" ", "%20").replace(",", "%2C").replace("'", "%27").replace("`", "%60")
 
     url = f"https://api.themoviedb.org/3/search/movie?query={formatted_name}&include_adult=true&language=en-US&page=1"
 
@@ -48,6 +48,6 @@ for index, row in items.iterrows():
     # print(response.text)
     # print(formatted_name)
 
-with open("../poster_urls.json", "w", encoding="utf-8") as f:
+with open("poster_urls.json", "w", encoding="utf-8") as f:
     json.dump(poster_urls_list, f, indent=4)
     

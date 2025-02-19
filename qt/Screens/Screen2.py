@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QLineEdit, QVBoxLayout, QWidget, QPushButton, QToolBar, QStackedWidget
 from PyQt5.QtCore import QSize, Qt
 from PyQt5.uic import loadUi
-from ScreenSwitch import switch_to_scr
+from qt.Screens.ScreenSwitch import switch_to_scr
 
 
 class Screen2(QMainWindow):

@@ -6,9 +6,6 @@ from Screens.Screen2 import Screen2
 from Screens.Screen3 import Screen3
 from Screens.ScreenSwitch import switch_to_scr
 import sys
-import os
-
-base_path = os.path.dirname(__file__)
 
 
 if __name__ == "__main__":
