@@ -18,7 +18,7 @@ class Screen1(QMainWindow):
         urls_file = open(treating_data_path + '/treating_data/poster_urls.json')
         urls = json.load(urls_file)
 
-        loadUi('/home/stiigp/Desktop/coding/juroque/qt/scr1.ui', self)
+        loadUi(base_path + '/../scr1.ui', self)
 
         self.actionScreen1.triggered.connect(lambda: switch_to_scr(self.parent(), 0))
         self.actionScreen2.triggered.connect(lambda: switch_to_scr(self.parent(), 1))
