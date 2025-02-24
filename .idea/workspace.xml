@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="36783cfd-2fc2-4e31-b517-ec2444d31561" name="Changes" comment="Versioning scr1.ui + fixing the file path" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="minor-changes" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;stiigp&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/stiigp/simple_recommender_system&quot;,
+    &quot;accountId&quot;: &quot;8e676f42-9609-4415-9f5c-278728cf9c6f&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2smipWfDO0cuS1w5PzWbzNez7bB" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.QtApp.executor&quot;: &quot;Run&quot;,
+    &quot;Python.SVD.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Screen1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;Python.best_average_ratings.executor&quot;: &quot;Run&quot;,
+    &quot;Python.cosine_similarity_recommendations.executor&quot;: &quot;Run&quot;,
+    &quot;Python.gathering_urls.executor&quot;: &quot;Run&quot;,
+    &quot;Python.generate_recommendation.executor&quot;: &quot;Run&quot;,
+    &quot;Python.items_ratings_treated.executor&quot;: &quot;Run&quot;,
+    &quot;Python.pearson_correlation_recommendations.executor&quot;: &quot;Run&quot;,
+    &quot;Python.user_rating_matrix.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/stiigp/Desktop/coding/juroque&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/treating_data" />
+      <recent name="$PROJECT_DIR$/recommendations" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.QtApp">
+    <configuration name="QtApp" type="PythonConfigurationType" factoryName="Python">
+      <module name="juroque" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.10 (cursoPythonCompleto)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/qt/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="generate_recommendation" type="PythonConfigurationType" factoryName="Python">
+      <module name="juroque" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.10 (cursoPythonCompleto)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/recommendations/generate_recommendation.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.generate_recommendation" />
+      <item itemvalue="Python.QtApp" />
+    </list>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-1b1018131e27-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.22562.180" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="36783cfd-2fc2-4e31-b517-ec2444d31561" name="Changes" comment="" />
+      <created>1739067333589</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1739067333589</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Initial commit">
+      <option name="closed" value="true" />
+      <created>1739067620028</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1739067620028</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Hiding sensitive information from the code">
+      <option name="closed" value="true" />
+      <created>1739102715072</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1739102715072</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Reorganized the code + refactors + implemented a single script with fuzz to generate recommendations based on the method user chooses">
+      <option name="closed" value="true" />
+      <created>1739115913666</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1739115913666</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added SVD (Singular Value Decomposition) algorithm to the project.">
+      <option name="closed" value="true" />
+      <created>1739283119366</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1739283119366</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added PyQt5 basic 3-screen layout and reorganized code between folders">
+      <option name="closed" value="true" />
+      <created>1739404546290</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1739404546290</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Now adding pyqt files as I forgot it on the last commit.">
+      <option name="closed" value="true" />
+      <created>1739404590496</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1739404590496</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Modularized screen switching functionality">
+      <option name="closed" value="true" />
+      <created>1739450138113</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1739450138113</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added first screen buttons with names of the films">
+      <option name="closed" value="true" />
+      <created>1739986980691</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1739986980691</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Versioning scr1.ui + fixing the file path">
+      <option name="closed" value="true" />
+      <created>1739987444427</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1739987444427</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial commit" />
+    <MESSAGE value="Hiding sensitive information from the code" />
+    <MESSAGE value="Reorganized the code + refactors + implemented a single script with fuzz to generate recommendations based on the method user chooses" />
+    <MESSAGE value="Added SVD (Singular Value Decomposition) algorithm to the project." />
+    <MESSAGE value="Added PyQt5 basic 3-screen layout and reorganized code between folders" />
+    <MESSAGE value="Now adding pyqt files as I forgot it on the last commit." />
+    <MESSAGE value="Modularized screen switching functionality" />
+    <MESSAGE value="Added first screen buttons with names of the films" />
+    <MESSAGE value="Versioning scr1.ui + fixing the file path" />
+    <option name="LAST_COMMIT_MESSAGE" value="Versioning scr1.ui + fixing the file path" />
+  </component>
+</project>
