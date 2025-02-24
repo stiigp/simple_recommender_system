@@ -10,8 +10,8 @@ class FilmButton(QWidget):
         super().__init__()
 
         self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        self.setMinimumSize(100, 150)
-        self.setMaximumSize(250, 375)
+        # self.setMinimumSize(100, 150)
+        self.setMaximumSize(198, 299)
         self.layout = QVBoxLayout(self)
         self.layout.setContentsMargins(0, 0, 0, 0)
 

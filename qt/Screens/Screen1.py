@@ -64,10 +64,6 @@ class Screen1(QMainWindow):
         pixmap.loadFromData(reply.readAll())
         # pixmap = pixmap.scaled(100, 150, Qt.KeepAspectRatio, Qt.SmoothTransformation)
 
-        for header in reply.rawHeaderList():
-            print(f"{header.data().decode()}: {reply.rawHeader(header).data().decode()}")
-        with open("imagem_test.jpg", "wb") as f:
-            f.write(reply.readAll())
         button.image_label.setPixmap(pixmap)
         button.image_label.setScaledContents(True)
 
