@@ -1,37 +1,43 @@
+from functools import partial
+
 from PyQt5.QtGui import QPixmap, QIcon
-from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QLineEdit, QVBoxLayout, QWidget, QPushButton, QToolBar, \
-    QStackedWidget, QSizePolicy
-from PyQt5.QtCore import QSize, Qt
+from PyQt5.QtWidgets import QMainWindow, QPushButton, QSizePolicy
+from PyQt5.QtCore import QUrl
 from PyQt5.uic import loadUi
+from PyQt5.QtNetwork import QNetworkAccessManager, QNetworkRequest
+from qt.Screens.Buttons.FilmButton import FilmButton
 import os
 import json
 from qt.Screens.ScreenSwitch import switch_to_scr
 from treating_data.best_average_ratings import grouped_by_mean
 from thefuzz import process
+from typing import List
+
+base_path = os.path.dirname(__file__)
+treating_data_path = os.path.dirname(os.path.dirname(base_path))
 
 class Screen1(QMainWindow):
-    def __init__(self):
-        super().__init__()
 
-        base_path = os.path.dirname(__file__)
-        treating_data_path = os.path.dirname(os.path.dirname(base_path))
+    current_page = 0
+    buttons_per_page = 9
+    manager = QNetworkAccessManager()
+
+    def get_urls_as_dictionary(self):
         urls_file = open(treating_data_path + '/treating_data/poster_urls.json')
         urls = json.load(urls_file)
 
-        loadUi('/home/stiigp/Desktop/coding/juroque/qt/scr1.ui', self)
+        return urls
 
-        self.actionScreen1.triggered.connect(lambda: switch_to_scr(self.parent(), 0))
-        self.actionScreen2.triggered.connect(lambda: switch_to_scr(self.parent(), 1))
-        self.actionScreen3.triggered.connect(lambda: switch_to_scr(self.parent(), 2))
+    def get_titles_from_poster_urls(self, urls: dict) -> List:
+        return [film['title'] for film in urls]
 
-        row_number = column_number = 0
-        max_characters = 25
-        titles_from_poster_urls = [film['title'] for film in urls]
+    def getting_titles_and_posters_urls(self, start: int, max_characters: int=25, number_of_titles_per_page: int=9) -> dict[str:str]:
 
-        for index, row in grouped_by_mean.iterrows():
-            # print(row['title'])
-            # title = process.extract(row['title'], titles)[0][0]
-            # print(title)
+        urls = self.get_urls_as_dictionary()
+
+        res = {}
+
+        for index, row in grouped_by_mean.iloc[start : start + number_of_titles_per_page].iterrows():
             title = row['title'][:-7]
             if title[-5:] == ", The":
                 title = "The " + title[:-5]
@@ -42,21 +48,61 @@ class Screen1(QMainWindow):
             else:
                 name = title
 
-            url_title = process.extractOne(query=title, choices=titles_from_poster_urls)
+            titles_from_urls = self.get_titles_from_poster_urls(urls)
+            url_title = process.extractOne(query=title, choices=titles_from_urls)[0]
 
+            for item in urls:
+                if item['title'] == url_title:
+                    # poster_url = item['poster_url']
+                    res[name] = item['poster_url']
 
+        return res
 
-            pixmap = QPixmap("")
-            icon = QIcon(pixmap)
-            button = QPushButton(name)
-            button.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
-            button.setIcon(icon)
-            self.gridLayout.addWidget(button, row_number, column_number)
+    def on_image_downloaded(self, reply, button):
+        # gera e retorna
+        pixmap = QPixmap()
+        pixmap.loadFromData(reply.readAll())
+        # pixmap = pixmap.scaled(100, 150, Qt.KeepAspectRatio, Qt.SmoothTransformation)
 
-            column_number += 1
-            if column_number == 3:
-                column_number = 0
-                row_number += 1
+        for header in reply.rawHeaderList():
+            print(f"{header.data().decode()}: {reply.rawHeader(header).data().decode()}")
+        with open("imagem_test.jpg", "wb") as f:
+            f.write(reply.readAll())
+        button.image_label.setPixmap(pixmap)
+        button.image_label.setScaledContents(True)
 
-            if row_number == 3:
+    def load_buttons(self):
+        column_index = 0
+        row_index = 0
+
+        titles_and_urls = self.getting_titles_and_posters_urls(start=self.current_page * self.buttons_per_page)
+        self.current_page += 1
+
+        for title, url in titles_and_urls.items():
+
+            button = FilmButton("", title)
+
+            url = "http" + url[5:]
+            reply = self.manager.get(QNetworkRequest(QUrl(url)))
+            reply.finished.connect(partial(self.on_image_downloaded, reply=reply, button=button))
+
+            self.gridLayout.addWidget(button, row_index, column_index)
+
+            column_index += 1
+            if column_index == 3:
+                column_index = 0
+                row_index += 1
+
+            if row_index == 3:
                 break
+
+    def __init__(self):
+        super().__init__()
+
+        loadUi(base_path + '/../scr1.ui', self)
+
+        self.actionScreen1.triggered.connect(lambda: switch_to_scr(self.parent(), 0))
+        self.actionScreen2.triggered.connect(lambda: switch_to_scr(self.parent(), 1))
+        self.actionScreen3.triggered.connect(lambda: switch_to_scr(self.parent(), 2))
+
+        self.load_buttons()
