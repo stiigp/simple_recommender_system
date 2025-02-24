@@ -1,3 +1,5 @@
+from functools import partial
+
 from PyQt5.QtGui import QPixmap, QIcon
 from PyQt5.QtWidgets import QMainWindow, QPushButton, QSizePolicy
 from PyQt5.QtCore import QUrl
@@ -13,7 +15,6 @@ from typing import List
 
 base_path = os.path.dirname(__file__)
 treating_data_path = os.path.dirname(os.path.dirname(base_path))
-
 
 class Screen1(QMainWindow):
 
@@ -57,18 +58,18 @@ class Screen1(QMainWindow):
 
         return res
 
-    def on_image_downloaded(self, reply, button) -> QPixmap:
+    def on_image_downloaded(self, reply, button):
         # gera e retorna
         pixmap = QPixmap()
         pixmap.loadFromData(reply.readAll())
         # pixmap = pixmap.scaled(100, 150, Qt.KeepAspectRatio, Qt.SmoothTransformation)
 
-        print(pixmap.size())
-
-        button.setIcon(QIcon(pixmap))
-        # button.setIconSize(button.size())
-
-
+        for header in reply.rawHeaderList():
+            print(f"{header.data().decode()}: {reply.rawHeader(header).data().decode()}")
+        with open("imagem_test.jpg", "wb") as f:
+            f.write(reply.readAll())
+        button.image_label.setPixmap(pixmap)
+        button.image_label.setScaledContents(True)
 
     def load_buttons(self):
         column_index = 0
@@ -79,12 +80,11 @@ class Screen1(QMainWindow):
 
         for title, url in titles_and_urls.items():
 
-            button = QPushButton(title)
-            button.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-            button.setMaximumSize(200, 300)
+            button = FilmButton("", title)
 
+            url = "http" + url[5:]
             reply = self.manager.get(QNetworkRequest(QUrl(url)))
-            reply.finished.connect(lambda: self.on_image_downloaded(reply, button))
+            reply.finished.connect(partial(self.on_image_downloaded, reply=reply, button=button))
 
             self.gridLayout.addWidget(button, row_index, column_index)
 
@@ -105,18 +105,4 @@ class Screen1(QMainWindow):
         self.actionScreen2.triggered.connect(lambda: switch_to_scr(self.parent(), 1))
         self.actionScreen3.triggered.connect(lambda: switch_to_scr(self.parent(), 2))
 
-        # self.load_buttons()
-        meu_button = QPushButton()
-        if not os.path.exists("C:/Users/Usuario\Desktop\CODING\simple_recommender_system\qt\Screens\Buttons/test_poster.jpg"):
-            print("Arquivo não encontrado!")
-        meu_button.setStyleSheet("""
-            QPushButton {
-                background-image: url(C:/Users/Usuario\Desktop\CODING\simple_recommender_system\qt\Screens\Buttons/test_poster.jpg);
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: cover;
-            }
-        """)
-        meu_button.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        meu_button.setMaximumSize(500, 750)
-        self.gridLayout.addWidget(meu_button, 0, 0)
+        self.load_buttons()
