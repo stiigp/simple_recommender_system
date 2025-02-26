@@ -16,7 +16,7 @@ def ratings_number(dataset: pd.DataFrame, item_id: int) -> int:
 
 # this function filters the ITEMS but doesn't filter the ratings, will deal with it in the function below
 def filtering_based_on_number_ratings(items: pd.DataFrame, ratings: pd.DataFrame, n: int) -> pd.DataFrame:
-    df_merged = items.merge(ratings, on="movieId", how="inner")
+    df_merged = items.merge(ratings, on="movieId", how="inner").dropna()
 
     # --- I swear this makes sense ---
     # groupby returns multiple dataframes, each one for a value of the selected column
@@ -51,5 +51,13 @@ ratings['movieId'] = pd.to_numeric(ratings['movieId'], errors="coerce")
 
 items['movieId'] = pd.to_numeric(items['movieId'], errors="coerce")
 
-items = filtering_based_on_number_ratings(items=items, ratings=ratings, n=40)
+# essas são as variáveis finais utilizadas pelo resto do projeto
+items = filtering_based_on_number_ratings(items=items, ratings=ratings, n=10)
 ratings = filtering_ratings_based_on_items(items=items, ratings=ratings)
+
+# por padrão o .to_numeric seta pra um ponto flutuante, quero converter os valores para int
+ratings['rating'] = ratings['rating'].astype(int)
+ratings['userId'] = ratings['userId'].astype(int)
+ratings['movieId'] = ratings['movieId'].astype(int)
+
+items['movieId'] = items['movieId'].astype(int)
