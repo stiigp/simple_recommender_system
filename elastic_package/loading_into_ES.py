@@ -1,12 +1,14 @@
 import pandas as pd
 from elasticsearch import Elasticsearch
 from elasticsearch.helpers import bulk
+
 from treating_data.items_ratings_treated import items, ratings
 from typing import List, Dict
+from config import BONSAI_URL
 
 class LoadingIntoES:
     def __init__(self):
-        self.es = Elasticsearch("http://localhost:9200")
+        self.es = Elasticsearch(BONSAI_URL)
         self.movies_index_name = "movies_index"
         self.ratings_index_name = "ratings_index"
         self.items_list = items.to_dict(orient="records")
@@ -30,7 +32,7 @@ class LoadingIntoES:
             }
         }
 
-        self.es.indices.create(index=self.movies_index_name, body={"mappings": movies_mapping})
+        self.es.indices.create(index=self.movies_index_name, body={"mappings": movies_mapping}, headers={"Content-Type": "application/json"})
 
     def delete_movies_index(self):
         self.es.indices.delete(index=self.movies_index_name)
@@ -53,7 +55,6 @@ class LoadingIntoES:
 
         return doc.body['_source']['body']
 
-
     def create_ratings_index(self):
         ratings_mapping = {
             "properties": {
@@ -65,9 +66,6 @@ class LoadingIntoES:
                 },
                 "rating": {
                     "type": "integer"
-                },
-                "timestamp": {
-                    "type": "text"
                 }
             }
         }
@@ -75,16 +73,16 @@ class LoadingIntoES:
         self.es.indices.create(index=self.ratings_index_name, body={"mappings": ratings_mapping})
 
     def delete_ratings_index(self):
-        self.es.delete(index=self.ratings_index_name)
+        self.es.indices.delete(index=self.ratings_index_name)
 
     def dump_ratings_on_index(self):
-        print(self.ratings_list[0])
-        actions = [{"_index": self.ratings_index_name, "_source": {"userId": rating["userId"], "movieId": rating['movieId'], "rating":rating['rating'], "timestamp": rating['timestamp']}} for rating in self.ratings_list]
+        # print(self.ratings_list[0])
+        actions = [{"_index": self.ratings_index_name, "_source": {"userId": rating["userId"], "movieId": rating['movieId'], "rating":rating['rating']}} for rating in self.ratings_list]
 
         bulk(self.es, actions)
 
     def select_ratings(self, movie_id: int) -> List[Dict]:
-        doc = self.es.search(index=self.ratings_index_name, query={"match": {"movieId": movie_id}})['hits']['hits']
+        doc = self.es.search(index=self.ratings_index_name, body={"query": {"match": {"movieId": movie_id}}})['hits']['hits']
         res = [rating['_source'] for rating in doc]
 
         return res
@@ -98,5 +96,7 @@ loading_obj = LoadingIntoES()
 # loading_obj.delete_all_movies()
 
 # loading_obj.create_ratings_index()
+# loading_obj.delete_ratings_index()
 # loading_obj.dump_ratings_on_index()
 # ratings_result = loading_obj.select_ratings(500)
+# print(ratings_result)
