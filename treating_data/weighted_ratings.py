@@ -20,7 +20,7 @@ ratings['movieId'] = pd.to_numeric(ratings['movieId'], errors="coerce")
 
 items['movieId'] = pd.to_numeric(items['movieId'], errors="coerce")
 
-# C
+
 def general_average(dataset: pd.DataFrame) -> float:
     return dataset['rating'].mean()
 

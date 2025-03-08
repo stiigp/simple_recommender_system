@@ -9,6 +9,7 @@ def rank_by_mean(items: pd.DataFrame, ratings: pd.DataFrame) -> pd.DataFrame:
 
     return df_grouped
 
+
 grouped_by_mean = rank_by_mean(items=items, ratings=ratings)
 
 if __name__ == "__main__":

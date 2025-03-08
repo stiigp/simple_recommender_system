@@ -1,0 +1,4 @@
+elasticsearch==7.10.1
+fastapi
+fastapi[standard]
+scikit-learn

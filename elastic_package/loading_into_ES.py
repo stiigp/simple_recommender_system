@@ -100,6 +100,6 @@ loading_obj = LoadingIntoES()
 
 # loading_obj.create_ratings_index()
 # loading_obj.delete_ratings_index()
-loading_obj.dump_ratings_on_index()
+# loading_obj.dump_ratings_on_index()
 # ratings_result = loading_obj.select_ratings(500)
 # print(ratings_result)
