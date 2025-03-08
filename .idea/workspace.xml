@@ -4,44 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36783cfd-2fc2-4e31-b517-ec2444d31561" name="Changes" comment="Começando a implementação do ElasticSearch no sistema. Ainda tem que ser trocado para o ElasticCloud para funcionar em toda máquina">
+    <list default="true" id="36783cfd-2fc2-4e31-b517-ec2444d31561" name="Changes" comment="Deletando a parte do QT + criação do primeiro esboço da API + criando e populando a instância elasticsearch no bonsai">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/elastic_package/loading_into_ES.py" beforeDir="false" afterPath="$PROJECT_DIR$/elastic_package/loading_into_ES.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml-100k/README" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml-100k/allbut.pl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml-100k/mku.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml-100k/u.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml-100k/u.genre" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml-100k/u.info" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml-100k/u.item" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml-100k/u.occupation" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml-100k/u.user" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml-100k/u1.base" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml-100k/u1.test" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml-100k/u2.base" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml-100k/u2.test" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml-100k/u3.base" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml-100k/u3.test" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml-100k/u4.base" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml-100k/u4.test" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml-100k/u5.base" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml-100k/u5.test" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml-100k/ua.base" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml-100k/ua.test" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml-100k/ub.base" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml-100k/ub.test" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/qt/Screens/Buttons/FilmButton.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/qt/Screens/Buttons/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/qt/Screens/Screen1.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/qt/Screens/Screen2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/qt/Screens/Screen3.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/qt/Screens/ScreenSwitch.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/qt/Screens/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/qt/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/qt/app.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/qt/main.ui" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/qt/scr1.ui" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/treating_data/gathering_urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/treating_data/gathering_urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,27 +51,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.QtApp.executor": "Run",
-    "Python.SVD.executor": "Run",
-    "Python.Screen1.executor": "Run",
-    "Python.app.executor": "Run",
-    "Python.best_average_ratings.executor": "Run",
-    "Python.cosine_similarity_recommendations.executor": "Run",
-    "Python.gathering_urls.executor": "Run",
-    "Python.generate_recommendation.executor": "Run",
-    "Python.items_ratings_treated.executor": "Run",
-    "Python.loading_into_ES.executor": "Run",
-    "Python.pearson_correlation_recommendations.executor": "Run",
-    "Python.user_rating_matrix.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/stiigp/Desktop/coding/juroque",
-    "settings.editor.selected.configurable": "preferences.keymap"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.QtApp.executor&quot;: &quot;Run&quot;,
+    &quot;Python.SVD.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Screen1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;Python.best_average_ratings.executor&quot;: &quot;Run&quot;,
+    &quot;Python.cosine_similarity_recommendations.executor&quot;: &quot;Run&quot;,
+    &quot;Python.gathering_urls.executor&quot;: &quot;Run&quot;,
+    &quot;Python.generate_recommendation.executor&quot;: &quot;Run&quot;,
+    &quot;Python.items_ratings_treated.executor&quot;: &quot;Run&quot;,
+    &quot;Python.loading_into_ES.executor&quot;: &quot;Run&quot;,
+    &quot;Python.pearson_correlation_recommendations.executor&quot;: &quot;Run&quot;,
+    &quot;Python.user_rating_matrix.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/stiigp/Desktop/coding/juroque&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/treating_data" />
@@ -242,7 +207,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740531265533</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Deletando a parte do QT + criação do primeiro esboço da API + criando e populando a instância elasticsearch no bonsai">
+      <option name="closed" value="true" />
+      <created>1741382943587</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1741382943587</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -258,6 +231,7 @@
     <MESSAGE value="Adjusting maximum size" />
     <MESSAGE value="Implementação da classe FilmButton + correção da função load_buttons" />
     <MESSAGE value="Começando a implementação do ElasticSearch no sistema. Ainda tem que ser trocado para o ElasticCloud para funcionar em toda máquina" />
-    <option name="LAST_COMMIT_MESSAGE" value="Começando a implementação do ElasticSearch no sistema. Ainda tem que ser trocado para o ElasticCloud para funcionar em toda máquina" />
+    <MESSAGE value="Deletando a parte do QT + criação do primeiro esboço da API + criando e populando a instância elasticsearch no bonsai" />
+    <option name="LAST_COMMIT_MESSAGE" value="Deletando a parte do QT + criação do primeiro esboço da API + criando e populando a instância elasticsearch no bonsai" />
   </component>
 </project>

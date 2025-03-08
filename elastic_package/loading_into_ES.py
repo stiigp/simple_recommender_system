@@ -4,11 +4,11 @@ from elasticsearch.helpers import bulk
 
 from treating_data.items_ratings_treated import items, ratings
 from typing import List, Dict
-from config import BONSAI_URL
+from config import SEARCHLY_URL
 
 class LoadingIntoES:
     def __init__(self):
-        self.es = Elasticsearch(BONSAI_URL)
+        self.es = Elasticsearch(SEARCHLY_URL)
         self.movies_index_name = "movies_index"
         self.ratings_index_name = "ratings_index"
         self.items_list = items.to_dict(orient="records")
@@ -66,6 +66,9 @@ class LoadingIntoES:
                 },
                 "rating": {
                     "type": "integer"
+                },
+                "timestamp": {
+                    "type": "text"
                 }
             }
         }
@@ -77,7 +80,7 @@ class LoadingIntoES:
 
     def dump_ratings_on_index(self):
         # print(self.ratings_list[0])
-        actions = [{"_index": self.ratings_index_name, "_source": {"userId": rating["userId"], "movieId": rating['movieId'], "rating":rating['rating']}} for rating in self.ratings_list]
+        actions = [{"_index": self.ratings_index_name, "_source": {"userId": rating["userId"], "movieId": rating['movieId'], "rating":rating['rating'], "timestamp": rating['timestamp']}} for rating in self.ratings_list]
 
         bulk(self.es, actions)
 
@@ -97,6 +100,6 @@ loading_obj = LoadingIntoES()
 
 # loading_obj.create_ratings_index()
 # loading_obj.delete_ratings_index()
-# loading_obj.dump_ratings_on_index()
+loading_obj.dump_ratings_on_index()
 # ratings_result = loading_obj.select_ratings(500)
 # print(ratings_result)
