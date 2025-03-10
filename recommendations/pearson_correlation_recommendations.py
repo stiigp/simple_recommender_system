@@ -1,5 +1,4 @@
 import pandas as pd
-from treating_data.user_rating_matrix import rating_matrix
 from treating_data.items_ratings_treated import items, ratings
 
 def filtering_ratings_based_on_items(items: pd.DataFrame, ratings: pd.DataFrame) -> pd.DataFrame:

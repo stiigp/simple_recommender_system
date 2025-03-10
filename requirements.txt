@@ -1,4 +1,9 @@
 elasticsearch==7.10.1
+numpy==1.26.4
 fastapi
 fastapi[standard]
 scikit-learn
+pandas
+surprise
+requests
+pyarrow

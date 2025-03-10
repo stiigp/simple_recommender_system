@@ -1,5 +1,4 @@
 import pandas as pd
-from treating_data.user_rating_matrix import rating_matrix
 from sklearn.metrics.pairwise import cosine_similarity
 from treating_data.items_ratings_treated import items
 

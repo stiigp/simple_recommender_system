@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36783cfd-2fc2-4e31-b517-ec2444d31561" name="Changes" comment="Criando o endpoint movies da API">
+    <list default="true" id="36783cfd-2fc2-4e31-b517-ec2444d31561" name="Changes" comment="Atualizando a geração de matriz de avaliações para fazer requisições para o elasticsearch e salvar em formato parquet">
+      <change beforePath="$PROJECT_DIR$/.idea/juroque.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/juroque.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommendations/pearson_correlation_recommendations.py" beforeDir="false" afterPath="$PROJECT_DIR$/recommendations/pearson_correlation_recommendations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treating_data/user_rating_matrix.py" beforeDir="false" afterPath="$PROJECT_DIR$/treating_data/user_rating_matrix.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,26 +56,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.QtApp.executor": "Run",
-    "Python.SVD.executor": "Run",
-    "Python.Screen1.executor": "Run",
-    "Python.app.executor": "Run",
-    "Python.best_average_ratings.executor": "Run",
-    "Python.cosine_similarity_recommendations.executor": "Run",
-    "Python.gathering_urls.executor": "Run",
-    "Python.generate_recommendation.executor": "Run",
-    "Python.items_ratings_treated.executor": "Run",
-    "Python.pearson_correlation_recommendations.executor": "Run",
-    "Python.user_rating_matrix.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/stiigp/Desktop/coding/juroque",
-    "settings.editor.selected.configurable": "preferences.keymap"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.QtApp.executor&quot;: &quot;Run&quot;,
+    &quot;Python.SVD.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Screen1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;Python.best_average_ratings.executor&quot;: &quot;Run&quot;,
+    &quot;Python.cosine_similarity_recommendations.executor&quot;: &quot;Run&quot;,
+    &quot;Python.gathering_urls.executor&quot;: &quot;Run&quot;,
+    &quot;Python.generate_recommendation.executor&quot;: &quot;Run&quot;,
+    &quot;Python.items_ratings_treated.executor&quot;: &quot;Run&quot;,
+    &quot;Python.loading_into_ES.executor&quot;: &quot;Run&quot;,
+    &quot;Python.pearson_correlation_recommendations.executor&quot;: &quot;Run&quot;,
+    &quot;Python.user_rating_matrix.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/stiigp/Desktop/coding/juroque&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/treating_data" />
@@ -80,12 +86,14 @@
   <component name="RunManager">
     <configuration name="generate_recommendation" type="PythonConfigurationType" factoryName="Python">
       <module name="juroque" />
+      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.10 (cursoPythonCompleto)" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -188,14 +196,31 @@
       <option name="project" value="LOCAL" />
       <updated>1739987444427</updated>
     </task>
-    <task id="LOCAL-00010" summary="Criando o endpoint movies da API">
-      <created>1741468150073</created>
+    <task id="LOCAL-00010" summary="Implementação da classe FilmButton + correção da função load_buttons">
+      <option name="closed" value="true" />
+      <created>1740420950428</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1741468150073</updated>
+      <updated>1740420950428</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Começando a implementação do ElasticSearch no sistema. Ainda tem que ser trocado para o ElasticCloud para funcionar em toda máquina">
+      <option name="closed" value="true" />
+      <created>1740531265533</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1740531265533</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Deletando a parte do QT + criação do primeiro esboço da API + criando e populando a instância elasticsearch no bonsai">
+      <option name="closed" value="true" />
+      <created>1741382943587</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1741382943587</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -208,7 +233,10 @@
     <MESSAGE value="Modularized screen switching functionality" />
     <MESSAGE value="Added first screen buttons with names of the films" />
     <MESSAGE value="Versioning scr1.ui + fixing the file path" />
-    <MESSAGE value="Criando o endpoint movies da API" />
-    <option name="LAST_COMMIT_MESSAGE" value="Criando o endpoint movies da API" />
+    <MESSAGE value="Adjusting maximum size" />
+    <MESSAGE value="Implementação da classe FilmButton + correção da função load_buttons" />
+    <MESSAGE value="Começando a implementação do ElasticSearch no sistema. Ainda tem que ser trocado para o ElasticCloud para funcionar em toda máquina" />
+    <MESSAGE value="Deletando a parte do QT + criação do primeiro esboço da API + criando e populando a instância elasticsearch no bonsai" />
+    <option name="LAST_COMMIT_MESSAGE" value="Deletando a parte do QT + criação do primeiro esboço da API + criando e populando a instância elasticsearch no bonsai" />
   </component>
 </project>
