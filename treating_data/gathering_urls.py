@@ -4,15 +4,18 @@
 import pandas as pd
 import requests
 import json
-import config
+import os
+
+TMDB_ACCESS_TOKEN = os.getenv("TMDB_ACCESS_TOKEN")
 
 if __name__ == "__main__":
     items = pd.read_csv('../ml-latest-small/movies.csv', encoding="latin-1", delimiter=",")
 
 
+
     headers = {
         "accept": "application/json",
-        "Authorization": f"Bearer {config.TMDB_ACCESS_TOKEN}"
+        "Authorization": f"Bearer {TMDB_ACCESS_TOKEN}"
     }
 
     BASE_IMG_URL = "https://image.tmdb.org/t/p/w500"

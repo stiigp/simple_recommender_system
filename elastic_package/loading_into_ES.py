@@ -1,10 +1,12 @@
 import pandas as pd
+import os
 from elasticsearch import Elasticsearch
 from elasticsearch.helpers import bulk
 
 from treating_data.items_ratings_treated import items, ratings
 from typing import List, Dict
-from config import SEARCHLY_URL
+
+SEARCHLY_URL = os.getenv("SEARCHLY_URL")
 
 class LoadingIntoES:
     def __init__(self):

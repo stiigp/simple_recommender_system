@@ -1,9 +1,11 @@
 elasticsearch==7.10.1
 numpy==1.26.4
-fastapi
+fastapi~=0.115.11
 fastapi[standard]
-scikit-learn
-pandas
-surprise
-requests
+scikit-learn~=1.6.1
+pandas~=2.2.3
+surprise~=0.1
+requests~=2.32.3
 pyarrow
+python-dotenv~=1.0.1
+scikit-surprise~=1.1.4

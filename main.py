@@ -1,11 +1,19 @@
 import pandas as pd
+import os
 from fastapi import FastAPI
 import requests
-from config import SEARCHLY_URL, MOVIES_INDEX_NAME
 from elasticsearch import Elasticsearch
 from typing import List
 from recommendations.pearson_correlation_recommendations import _build_pearson_similarity_matrix
 from recommendations.cosine_similarity_recommendations import _build_cosine_similarity_matrix
+from dotenv import load_dotenv
+
+if os.getenv("RAILWAY_ENVIRONMENT") is None:
+    from dotenv import load_dotenv
+    load_dotenv()
+
+SEARCHLY_URL = os.getenv("SEARCHLY_URL")
+MOVIES_INDEX_NAME = os.getenv("MOVIES_INDEX_NAME")
 
 app = FastAPI()
 es = Elasticsearch(SEARCHLY_URL)

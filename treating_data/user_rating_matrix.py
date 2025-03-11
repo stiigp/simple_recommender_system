@@ -1,9 +1,11 @@
+import os
 import pandas as pd
 
 from elasticsearch import Elasticsearch
 from pandas import RangeIndex
 
-from config import SEARCHLY_URL, RATINGS_INDEX_NAME
+SEARCHLY_URL = os.getenv("SEARCHLY_URL")
+RATINGS_INDEX_NAME = os.getenv("RATINGS_INDEX_NAME")
 
 # this does generate the rating matrix, where users are the rows, movies are the columns and the value of
 # the cell mat[i][j] is the rating user i gave to film j.
