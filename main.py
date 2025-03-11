@@ -49,7 +49,7 @@ async def getMovieById(movieId:int) -> List:
 
 @app.get('/similar_movies_pearson/{movieId}')
 async def getSimilarMoviesPearson(movieId: int):
-    rating_matrix = pd.read_parquet("../treating_data/rating_matrix.parquet")
+    rating_matrix = pd.read_parquet("treating_data/rating_matrix.parquet")
 
     pearson_similarity_matrix = _build_pearson_similarity_matrix(rating_matrix)
 
@@ -76,7 +76,7 @@ async def getSimilarMoviesPearson(movieId: int):
 
 @app.get('/similar_movies_cosine/{movieId}')
 async def getSimilarMoviesCosine(movieId: int):
-    rating_matrix = pd.read_parquet("../treating_data/rating_matrix.parquet")
+    rating_matrix = pd.read_parquet("treating_data/rating_matrix.parquet")
 
     cosine_similarity_matrix = _build_cosine_similarity_matrix(rating_matrix)
 
@@ -98,3 +98,5 @@ async def getSimilarMoviesCosine(movieId: int):
         result.append(response['hits']['hits'][0]['_source']['body']['title'])
 
     return result
+
+

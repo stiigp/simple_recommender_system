@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36783cfd-2fc2-4e31-b517-ec2444d31561" name="Changes" comment="Atualizando a geração de matriz de avaliações para fazer requisições para o elasticsearch e salvar em formato parquet">
-      <change beforePath="$PROJECT_DIR$/.idea/juroque.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/juroque.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="36783cfd-2fc2-4e31-b517-ec2444d31561" name="Changes" comment="Implementação dos endpoints de recomendações por similaridade de Pearson e por similaridade de Cosseno + Atualizando a geração de matriz de avaliações para fazer requisições para o elasticsearch e salvar em formato parquet.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recommendations/pearson_correlation_recommendations.py" beforeDir="false" afterPath="$PROJECT_DIR$/recommendations/pearson_correlation_recommendations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treating_data/user_rating_matrix.py" beforeDir="false" afterPath="$PROJECT_DIR$/treating_data/user_rating_matrix.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,7 +215,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741382943587</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Implementação dos endpoints de recomendações por similaridade de Pearson e por similaridade de Cosseno + Atualizando a geração de matriz de avaliações para fazer requisições para o elasticsearch e salvar em formato parquet.">
+      <option name="closed" value="true" />
+      <created>1741606962521</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1741606962521</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -237,6 +240,7 @@
     <MESSAGE value="Implementação da classe FilmButton + correção da função load_buttons" />
     <MESSAGE value="Começando a implementação do ElasticSearch no sistema. Ainda tem que ser trocado para o ElasticCloud para funcionar em toda máquina" />
     <MESSAGE value="Deletando a parte do QT + criação do primeiro esboço da API + criando e populando a instância elasticsearch no bonsai" />
-    <option name="LAST_COMMIT_MESSAGE" value="Deletando a parte do QT + criação do primeiro esboço da API + criando e populando a instância elasticsearch no bonsai" />
+    <MESSAGE value="Implementação dos endpoints de recomendações por similaridade de Pearson e por similaridade de Cosseno + Atualizando a geração de matriz de avaliações para fazer requisições para o elasticsearch e salvar em formato parquet." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementação dos endpoints de recomendações por similaridade de Pearson e por similaridade de Cosseno + Atualizando a geração de matriz de avaliações para fazer requisições para o elasticsearch e salvar em formato parquet." />
   </component>
 </project>
