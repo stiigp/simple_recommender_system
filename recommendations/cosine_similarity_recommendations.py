@@ -3,7 +3,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 from treating_data.items_ratings_treated import items
 
 
-def _build_cosine_similarity_matrix(rating_matrix: pd.DataFrame) -> pd.DataFrame:
+def build_cosine_similarity_matrix(rating_matrix: pd.DataFrame) -> pd.DataFrame:
     # aqui usamos a matriz transposta pois a funcao cosine_similarity calcula a similaridade entre as linhas
     # e queremos calcular a similaridade entre os filmes, nao os usuarios
     similarity_between_movies = cosine_similarity(rating_matrix.T)
@@ -14,7 +14,7 @@ def _build_cosine_similarity_matrix(rating_matrix: pd.DataFrame) -> pd.DataFrame
 
 def generate_recommendations(rating_matrix: pd.DataFrame, movieId: int) -> list:
 
-    similarity_matrix = _build_cosine_similarity_matrix(rating_matrix=rating_matrix)
+    similarity_matrix = build_cosine_similarity_matrix(rating_matrix=rating_matrix)
 
     list_of_recommendations = similarity_matrix[movieId].sort_values(ascending=False).index
 
@@ -23,7 +23,7 @@ def generate_recommendations(rating_matrix: pd.DataFrame, movieId: int) -> list:
     return [items[items['movieId'] == recommendation]['title'].iloc[0] for recommendation in list_of_recommendations[1:6]]
 
 if __name__ == "__main__":   
-    similarity_matrix = _build_cosine_similarity_matrix(rating_matrix=rating_matrix)
+    similarity_matrix = build_cosine_similarity_matrix(rating_matrix=rating_matrix)
 
     # print(similarity_matrix.head())
     # print(max(similarity_matrix[2]))

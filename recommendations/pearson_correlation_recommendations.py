@@ -5,14 +5,14 @@ def filtering_ratings_based_on_items(items: pd.DataFrame, ratings: pd.DataFrame)
     # print(ratings[ratings['movieId'].isin(items["movieId"])])
     return ratings[ratings['movieId'].isin(items["movieId"])]
 
-def _build_pearson_similarity_matrix(rating_matrix: pd.DataFrame) -> pd.DataFrame:
+def build_pearson_similarity_matrix(rating_matrix: pd.DataFrame) -> pd.DataFrame:
 
     similarity_between_movies = rating_matrix.corr(method='pearson')
 
     return similarity_between_movies
 
 def generate_recommendation(rating_matrix: pd.DataFrame, movieId: int) -> list:
-    pearson_similarity_matrix = _build_pearson_similarity_matrix(rating_matrix=rating_matrix)
+    pearson_similarity_matrix = build_pearson_similarity_matrix(rating_matrix=rating_matrix)
 
     list_of_recommendations = pearson_similarity_matrix[movieId].sort_values(ascending=False).iloc[1:6].index
 
