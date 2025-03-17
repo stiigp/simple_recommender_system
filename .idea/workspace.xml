@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36783cfd-2fc2-4e31-b517-ec2444d31561" name="Changes" comment="Implementando a chave de API pela fastAPI">
-      <change afterPath="$PROJECT_DIR$/Classes/Usuario.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Classes/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-    </list>
+    <list default="true" id="36783cfd-2fc2-4e31-b517-ec2444d31561" name="Changes" comment="Implementando o endpoint de registro de usuário com bcrypt para hash" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -251,7 +245,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741953502295</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Implementando o endpoint de registro de usuário com bcrypt para hash">
+      <option name="closed" value="true" />
+      <created>1742172021497</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1742172021497</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -275,6 +277,7 @@
     <MESSAGE value="Movendo o script main para a pasta raiz" />
     <MESSAGE value="Criando arquivo .env e implementando o load_dotenv() para funcionar no railway" />
     <MESSAGE value="Implementando a chave de API pela fastAPI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementando a chave de API pela fastAPI" />
+    <MESSAGE value="Implementando o endpoint de registro de usuário com bcrypt para hash" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementando o endpoint de registro de usuário com bcrypt para hash" />
   </component>
 </project>
