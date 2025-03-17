@@ -9,3 +9,7 @@ requests~=2.32.3
 pyarrow
 python-dotenv~=1.0.1
 scikit-surprise~=1.1.4
+pytz~=2025.1
+SQLAlchemy~=2.0.39
+pydantic~=2.10.6
+passlib~=1.7.4

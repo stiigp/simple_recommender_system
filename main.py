@@ -1,17 +1,19 @@
 import pandas as pd
 import os
 
-from fastapi import FastAPI, HTTPException, Depends
+from fastapi import FastAPI, HTTPException, status, Depends
 from fastapi.security.api_key import APIKeyHeader
-import requests
+from utils.crypt import hash_senha, verifica_senha
 from elasticsearch import Elasticsearch
 from typing import List
+from sqlalchemy.exc import SQLAlchemyError
 from recommendations.pearson_correlation_recommendations import build_pearson_similarity_matrix
 from recommendations.cosine_similarity_recommendations import build_cosine_similarity_matrix
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker
 from dotenv import load_dotenv
 from Classes.Usuario import Usuario
+from Classes.UsuarioModel import UsuarioModel
 
 if os.getenv("RAILWAY_ENVIRONMENT") is None:
     load_dotenv()
@@ -22,7 +24,7 @@ API_KEY = os.getenv("API_KEY")
 HEADER_NAME = os.getenv("HEADER_NAME")
 MYSQL_URL = os.getenv("MYSQL_URL")
 
-engine = create_engine(MYSQL_URL)
+engine = create_engine(MYSQL_URL, pool_recycle=280, pool_pre_ping=True)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 api_key_header = APIKeyHeader(name=HEADER_NAME, auto_error=False)
@@ -121,5 +123,43 @@ async def getSimilarMoviesCosine(movieId: int):
         result.append(response['hits']['hits'][0]['_source']['body']['title'])
 
     return result
+
+@app.post('/register_user', dependencies=[Depends(auth)])
+async def registrarUsuario(usuario: UsuarioModel):
+    db = SessionLocal()
+
+    senha_hasheada = hash_senha(usuario.password)
+
+    try:
+        db = SessionLocal()
+
+        novoUsuario = Usuario(
+            username=usuario.username,
+            email=usuario.email,
+            senha=senha_hasheada
+        )
+
+        db.add(novoUsuario)
+        db.commit()
+        db.refresh(novoUsuario)
+
+        return {
+            "message": "User criado com sucesso!",
+            "User": {
+                "userId": novoUsuario.id,
+                "userName": novoUsuario.username,
+                "userEmail": novoUsuario.email
+            }
+        }
+
+    except SQLAlchemyError as e:
+        db.rollback()
+
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Erro ao criar usuário: {e}"
+        )
+    finally:
+        db.close()
 
 

@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36783cfd-2fc2-4e31-b517-ec2444d31561" name="Changes" comment="Criando arquivo .env e implementando o load_dotenv() para funcionar no railway">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="36783cfd-2fc2-4e31-b517-ec2444d31561" name="Changes" comment="Implementando a chave de API pela fastAPI">
+      <change afterPath="$PROJECT_DIR$/Classes/Usuario.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Classes/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recommendations/cosine_similarity_recommendations.py" beforeDir="false" afterPath="$PROJECT_DIR$/recommendations/cosine_similarity_recommendations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recommendations/pearson_correlation_recommendations.py" beforeDir="false" afterPath="$PROJECT_DIR$/recommendations/pearson_correlation_recommendations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,8 +243,19 @@
       <option name="project" value="LOCAL" />
       <updated>1741709311794</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Implementando a chave de API pela fastAPI">
+      <option name="closed" value="true" />
+      <created>1741953502294</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1741953502295</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
@@ -263,6 +274,7 @@
     <MESSAGE value="Implementação dos endpoints de recomendações por similaridade de Pearson e por similaridade de Cosseno + Atualizando a geração de matriz de avaliações para fazer requisições para o elasticsearch e salvar em formato parquet." />
     <MESSAGE value="Movendo o script main para a pasta raiz" />
     <MESSAGE value="Criando arquivo .env e implementando o load_dotenv() para funcionar no railway" />
-    <option name="LAST_COMMIT_MESSAGE" value="Criando arquivo .env e implementando o load_dotenv() para funcionar no railway" />
+    <MESSAGE value="Implementando a chave de API pela fastAPI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementando a chave de API pela fastAPI" />
   </component>
 </project>
